@@ -43,12 +43,16 @@
                                 <tr>
                                     <td>{{ $no++ }}</td>
                                     <td><img src="{{ url('storage/cover-books/', $b->image) }}" width="150" alt="" class="img img-fluid img-thumbnail border-dark"></td>
-                                    <td>{{ $b->category_books->nama_kategori }}</td>
+                                    <td>{{ $b->category_books ? $b->category_books->nama_kategori : 'Kategori Tidak Ditemukan' }}</td>
                                     <td>{{ $b->judul }}</td>
                                     <td>{{ $b->penerbit }}</td>
                                     <td>{{ $b->pengarang }}</td>
                                     <td>{{ $b->stok }}</td>
                                     <td>
+                                        <!-- Add any additional actions or buttons here -->
+                                    
+                                
+                            
                                         @forelse ($b->peminjaman as $peminjaman)
                                         <ul>
                                             <li>{{ $peminjaman->students->nama }}</li>
