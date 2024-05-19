@@ -1,5 +1,5 @@
 @extends('layouts.buku')
-@section('title', 'Home | Daftar Buku')
+@section('title', 'Buku | Daftar Buku')
 
 @section('content')
 
@@ -23,6 +23,9 @@
             </form>
           </div>
         </div>
+        <div class="col-md-12 text-center mb-5">
+          <h2>Daftar Buku Terupdate</h2>
+      </div>
      <div class="row mb-3">
        @forelse ($books as $b)
        <div class="col-lg-4 col-md-6 d-flex justify-content-evenly mb-4">

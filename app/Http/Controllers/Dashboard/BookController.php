@@ -103,7 +103,7 @@ class BookController extends Controller
 
         if($request->image) {
             $imageOld = 'storage/cover-books/'. $book->image;
-            if(File::exists($imageOld)) {
+            if(File::exists($imageOld) || ($imageOld != 'image.png')) {
                 File::delete($imageOld);
 
                 $extension = $request->file('image')->getClientOriginalExtension();
