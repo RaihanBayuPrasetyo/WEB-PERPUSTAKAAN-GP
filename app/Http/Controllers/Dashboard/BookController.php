@@ -97,6 +97,8 @@ class BookController extends Controller
             'tahun' => 'required|max:4'
         ]);
 
+        $imageName = '';
+
         $book = Book::find($id);
 
         if($request->image) {
@@ -110,6 +112,9 @@ class BookController extends Controller
             }
         } else {
             $imageName = $book->image;
+            $extension = $request->file('image')->getClientOriginalExtension();
+                $imageName = rand() . '.' .$extension;
+                $path = $request->file('image')->storeAs('cover-books', $imageName, 'public');
         }
 
         $book = Book::find($id)->update([
