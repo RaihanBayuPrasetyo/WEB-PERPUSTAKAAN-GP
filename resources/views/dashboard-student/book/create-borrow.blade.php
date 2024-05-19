@@ -1,5 +1,5 @@
 @extends('layouts.dashboard-student')
-@section('title', 'Student | Pinjam Buku')
+@section('title', 'Anggota | Pinjam Buku')
     
 @section('content')
 <div class="container">
@@ -35,11 +35,13 @@
                             <div class="col-6">
                                 <label for="book_id" class="form-label">Judul Buku</label>
                                 <select name="book_id" id="book_id" class="form-control @error('book_id') is-invalid @enderror">
-                                    <option selected hidden>Pilih Buku</option>
+                                    <option value="{{ $id }}" selected>{{ $book->judul }}</option>
                                     @foreach ($books as $book)
-                                        <option value="{{ $book->id }}">{{ $book->judul }}</option>
+                                        @if ($book->id != $id)
+                                            <option value="{{ $book->id }}">{{ $book->judul }}</option>
+                                        @endif
                                     @endforeach
-                                </select>
+                                </select>                                
                                 @error('book_id')
                                     <div class="alert alert-danger mt-1 mb-1 p-2">{{ $message }}</div>
                                 @enderror
@@ -55,7 +57,7 @@
                             </div>
                             <div class="col-6">
                                 <label for="pengembalian" class="form-label">Tanggal Pengembalian</label>
-                                <input type="text" name="pengembalian" value="{{ $pengembalian }}" id="pengembalian" class="form-control @error('pengembalian') @enderror readonly">
+                                <input type="date" name="pengembalian" value="{{ $pengembalian }}" id="pengembalian" class="form-control @error('pengembalian') @enderror ">
                                 @error('pengembalian')
                                     <div class="alert alert-danger mt-1 mb-1 p-2">{{ $message }}</div>
                                 @enderror

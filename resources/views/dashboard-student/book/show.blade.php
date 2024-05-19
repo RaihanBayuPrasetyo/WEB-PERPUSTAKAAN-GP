@@ -1,5 +1,5 @@
 @extends('layouts.dashboard-student')
-@section('title', 'Admin | Detail Buku')
+@section('title', 'Anggota | Detail Buku')
 
 @section('content')
     <div class="row">
@@ -54,7 +54,7 @@
                     </div>
                 </div>
                 <div class="card-footer  d-flex justify-content-between">
-                    <a href="{{ route('book-student.create') }}" class="btn btn-primary">Pinjam Buku</a>
+                    <a href="{{ url('student/book-student/create/' . $id) }}" class="btn btn-primary">Pinjam Buku</a>
                     <a href="{{ route('book.index') }}" class="btn btn-secondary">Kembali</a>
                 </div>
             </div>

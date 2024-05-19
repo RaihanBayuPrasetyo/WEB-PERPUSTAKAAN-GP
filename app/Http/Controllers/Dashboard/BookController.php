@@ -101,23 +101,26 @@ class BookController extends Controller
 
         $book = Book::find($id);
 
-        if($request->image) {
-            $imageOld = 'storage/cover-books/'. $book->image;
-            if(File::exists($imageOld) || ($imageOld != 'image.png')) {
+        if ($request->hasFile('image')) {
+            $imageOld = storage_path('app/public/cover-books/' . $book->image);
+        
+            // Hanya menghapus gambar lama jika file ada dan bukan gambar default
+            if (File::exists($imageOld) && $book->image != 'image.png') {
                 File::delete($imageOld);
-
-                $extension = $request->file('image')->getClientOriginalExtension();
-                $imageName = rand() . '.' .$extension;
-                $path = $request->file('image')->storeAs('cover-books', $imageName, 'public');
             }
-        } else {
-            $imageName = $book->image;
+        
+            // Mengupload gambar baru
             $extension = $request->file('image')->getClientOriginalExtension();
-                $imageName = rand() . '.' .$extension;
-                $path = $request->file('image')->storeAs('cover-books', $imageName, 'public');
+            $imageName = rand() . '.' . $extension;
+            $path = $request->file('image')->storeAs('cover-books', $imageName, 'public');
+        } else {
+            // Jika tidak ada gambar baru diupload, tetap gunakan gambar lama
+            $imageName = $book->image;
         }
-
-        $book = Book::find($id)->update([
+        
+        // Memperbarui data buku
+        $book = Book::find($id);
+        $book->update([
             'image' => $imageName,
             'category_book_id' => $request->category_book_id,
             'judul' => $request->judul,
@@ -125,6 +128,11 @@ class BookController extends Controller
             'pengarang' => $request->pengarang,
             'tahun' => $request->tahun
         ]);
+        
+        // Jika perlu menyimpan nama file baru ke database
+        $book->image = $imageName;
+        $book->save();
+        
 
         return redirect()->route('book.index')->with('status', 'Data Buku Berhasil Di Update');
     }

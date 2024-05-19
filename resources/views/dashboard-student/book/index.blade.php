@@ -1,5 +1,5 @@
 @extends('layouts.dashboard-student')
-@section('title', 'Admin | Data Buku')
+@section('title', 'Anggota | Data Buku')
 
 @section('content')
 <div class="container">

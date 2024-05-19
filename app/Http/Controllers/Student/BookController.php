@@ -18,18 +18,22 @@ class BookController extends Controller
         return view('dashboard-student.book.index', compact('books'));
     }
 
-    public function create()
-    {
-        $students = Student::all();
-        $categories = CategoryBook::all();
-        $books = Book::all();
-        $peminjaman = date('d-F-Y');
-        $pengembalian = date('d-F-Y', strtotime('+7 day', strtotime(date('d-m-Y'))));
-        $status = 'Meminjam';
-        $allow = 'Belum Disetujui';
+    public function create($id)
+{
+    // Lakukan apa pun yang perlu dilakukan dengan $id_book, seperti menggunakannya untuk memuat data terkait buku yang ingin dipinjam
+    $book = Book::findOrFail($id);
 
-        return view('dashboard-student.book.create-borrow', compact('students', 'categories', 'books', 'peminjaman', 'pengembalian', 'status', 'allow'));
-    }
+    $students = Student::all();
+    $categories = CategoryBook::all();
+    $books = Book::all();
+    $peminjaman = date('d-F-Y');
+    $pengembalian = date('d-F-Y', strtotime('+7 day', strtotime(date('d-m-Y'))));
+    $status = 'Meminjam';
+    $allow = 'Belum Disetujui';
+
+    return view('dashboard-student.book.create-borrow', compact('id', 'book', 'students', 'categories', 'books', 'peminjaman', 'pengembalian', 'status', 'allow'));
+}
+
 
     public function store(Request $request)
     {
@@ -62,6 +66,6 @@ class BookController extends Controller
     {
         $b = Book::find($id);
 
-        return view('dashboard-student.book.show', compact('b'));
+        return view('dashboard-student.book.show', compact('b','id'));
     }
 }

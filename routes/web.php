@@ -64,7 +64,7 @@ Route::group(['middleware' => ['auth:student']], function() {
     Route::prefix('/student')->group(function() {
         Route::get('/dashboard', [StudentDashboardController::class, 'index'])->name('dashboard.siswa');
         Route::post('/logout-student', [LoginStudentController::class, 'logout'])->name('logout-student');
-
+        Route::get('/book-student/create/{id}', [StudentBookController::class, 'create'])->name('book-student.create');
         Route::resource('/user-student', StudentUserController::class);
         Route::resource('/book-student', StudentBookController::class);
         Route::resource('/borrow-history', BorrowHistoryController::class);
