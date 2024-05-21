@@ -4,7 +4,7 @@
 @section('content')
 <div class="container">
   <div class="row mb-2">
-    <div class="col-md-6 text-center">
+    <div class="col-md-6 text-center mt-5">
       <form action="{{ route('search-book') }}" method="GET">
         @csrf
         <input type="search" name="search" class="form-control mb-3" placeholder="Cari judul  buku">
@@ -39,7 +39,7 @@
      </div>
      <div class="row mb-3">
         @forelse ($book as $b)
-        <div class="col-lg-4 col-md-6 d-flex justify-content-evenly mb-4">
+        {{-- <div class="col-lg-4 col-md-6 d-flex justify-content-evenly mb-4">
             <div class="card p-1 position-relative" style="width: 22rem;">
                 <img src="{{ url('storage/cover-books/'. $b->image) }}" class="card-img-top" alt="Image 1">
                 <div class="card-body">
@@ -50,7 +50,7 @@
                     <a href="{{ route('detail-book', $b->slug) }}" class="btn btn-primary">Detail</a>
                     </div>
                 </div>
-            </div>
+            </div> --}}
         </div>
         @empty
             <h3>Data buku kosong</h3>

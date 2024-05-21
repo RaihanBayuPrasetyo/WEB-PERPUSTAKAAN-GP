@@ -16,7 +16,7 @@
           </div>
      </div> --}}
      <div class="row mb-2">
-          <div class="col-md-6 text-center">
+          <div class="col-md-6 text-center mt-5">
             <form action="{{ route('search-book') }}" method="GET">
               @csrf
               <input type="search" name="search" class="form-control mb-3" placeholder="Cari judul atau pengarang buku">
