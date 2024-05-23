@@ -19,7 +19,7 @@
                                 </tr>
                                 <tr>
                                     <th>Kategori</th>
-                                    <td>{{ $b->category_books->nama_kategori }}</td>
+                                    <td>{{ $b->category_books ? $b->category_books->nama_kategori : 'Kategori tidak tersedia' }}</td>
                                 </tr>
                                 <tr>
                                     <th>Judul</th>
