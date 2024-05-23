@@ -11,6 +11,13 @@ use App\Models\Borrow;
 
 class BookController extends Controller
 {
+
+     public function __construct()
+    {
+        $this->middleware('auth:student');
+    }
+
+
     public function index()
     {
         $books = Book::orderBy('id', 'DESC')->get();

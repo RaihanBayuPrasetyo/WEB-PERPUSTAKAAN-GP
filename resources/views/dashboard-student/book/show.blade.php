@@ -55,7 +55,7 @@
                 </div>
                 <div class="card-footer  d-flex justify-content-between">
                     <a href="{{ url('student/book-student/create/' . $id) }}" class="btn btn-primary">Pinjam Buku</a>
-                    <a href="{{ route('book.index') }}" class="btn btn-secondary">Kembali</a>
+                    <a href="{{ route('book-student.index') }}" class="btn btn-secondary">Kembali</a>
                 </div>
             </div>
         </div>

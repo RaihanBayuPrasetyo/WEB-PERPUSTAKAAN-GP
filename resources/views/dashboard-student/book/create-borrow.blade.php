@@ -82,7 +82,7 @@
                         <div class="row">
                             <div class="col-12">
                                 <button class="btn btn-primary float-end ms-3">Pinjam</button>
-                                <a href="{{ route('book-student.index') }}" class="btn btn-secondary float-end">Kembali</a>
+                                <a href="{{ route('book-student.show', $id) }}" class="btn btn-secondary float-end">Kembali</a>
                             </div>
                         </div>
                     </form>
