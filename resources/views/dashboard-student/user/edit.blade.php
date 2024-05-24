@@ -33,6 +33,7 @@
                         <div class="row mb-3">
                             <div class="col-md-6">
                                 <label for="kelas" class="form-label">Tingkat Sekolah</label>
+                                
                                 <input type="text" name="kelas" value="{{ Auth::guard('student')->user()->kelas }}"
                                     id="kelas" class="form-control @error('kelas') is-invalid @enderror" readonly>
                                 @error('kelas')
@@ -40,10 +41,10 @@
                                 @enderror
                             </div>
                             <div class="col-md-6">
-                                <label for="password" class="form-label">Password</label>
+                                <label for="password" class="form-label">Password Baru</label>
                                 <input type="password" name="password" id="email"
                                     class="form-control @error('password') is-invalid @enderror"
-                                    placeholder="Masukkan password atau kosongkan">
+                                    placeholder="Masukkan password baru ">
                                 @error('password')
                                     <div class="alert alert-danger mt-2 mb-2 p-2">{{ $message }}</div>
                                 @enderror
