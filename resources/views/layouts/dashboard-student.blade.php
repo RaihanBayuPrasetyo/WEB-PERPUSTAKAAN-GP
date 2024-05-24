@@ -6,12 +6,12 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>@yield('title')</title>
-  <link rel="shortcut icon" type="image/png" href="../assets/images/logos/favicon.png" />
+  <link rel="shortcut icon" type="image/png" href="../assets/images/logos/logo_perpus.png" />
   <link rel="stylesheet" href="{{ url('assets/css/styles.min.css') }}" />
 
   {{-- DataTables --}}
   <link href="{{ url('assets/DataTables/datatables.min.css') }}" rel="stylesheet" />
-
+  
 </head>
 
 <body>

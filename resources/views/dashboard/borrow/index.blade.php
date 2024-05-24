@@ -49,14 +49,15 @@
                                     <td>{{ $b->admin }}</td>
                                     <td>{{ $b->status }}</td>
                                     <td width="14%">
-                                        <a href="{{ route('borrow.edit', $b->id) }}" class="btn btn-warning">
+                                        <a href="{{ route('borrow.edit', $b->id) }}" class="btn btn-warning" data-bs-toggle="tooltip" data-bs-original-title="Edit Peminjaman">
                                             <i class="fa-regular fa-pen-to-square"></i>
                                         </a>
                                         <form action="{{ route('borrow.destroy', $b->id) }}" method="POST" class="d-inline">
                                             @csrf
                                             @method('delete')
-                                            <button type="submit" class="btn btn-danger"><i class="fa-sharp fa-solid fa-trash"></i></button>
-                                        </form>
+                                            <button type="submit" class="btn btn-danger" data-bs-toggle="tooltip" title="Hapus Buku">
+                                                <i class="fa-solid fa-trash"></i>
+                                            </button>
                                     </td>
                                 </tr>
                                 @endforeach

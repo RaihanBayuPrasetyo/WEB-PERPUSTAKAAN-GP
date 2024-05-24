@@ -16,7 +16,7 @@
     <div class="row mb-3">
         <div class="col-12">
             <div class="card shadow">
-                <div class="card-header ">
+                <div class="card-header">
                     <h5 class="float-start">Data Buku</h5>
                 </div>
                 <div class="card-body">
@@ -45,8 +45,8 @@
                                     <td>{{ $b->penerbit }}</td>
                                     <td>{{ $b->pengarang }}</td>
                                     <td>{{ $b->stok }}</td>
-                                    <td width="7%%">
-                                        <a href="{{ route('book-student.show', $b->id) }}" class="btn btn-info">
+                                    <td width="7%">
+                                        <a href="{{ route('book-student.show', $b->id) }}" class="btn btn-info" data-bs-toggle="tooltip" title="Pinjam buku">
                                             <i class="fa-regular fa-pen-to-square"></i>
                                         </a>
                                     </td>
@@ -60,4 +60,14 @@
         </div>
     </div>
 </div>
+
+<!-- Inline Script for Initializing Tooltips -->
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+        var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+            return new bootstrap.Tooltip(tooltipTriggerEl);
+        });
+    });
+</script>
 @endsection

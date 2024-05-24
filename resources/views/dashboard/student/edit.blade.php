@@ -25,7 +25,7 @@
                         <div class="row mb-3">
                             <div class="form-group col-md-6">
                                 <label for="nis" class="form-label">Username</label>
-                                <input type="number" name="nis" value="{{ $s->nis }}" id="nis" class="form-control @error('nis') is-invalid @enderror" placeholder="Input Username">
+                                <input type="text" name="nis" value="{{ $s->nis }}" id="nis" class="form-control @error('nis') is-invalid @enderror" placeholder="Input Username">
                                 @error('nis')
                                     <div class="alert alert-danger mt-2 mb-2 p-2">{{ $message }}</div>
                                 @enderror
