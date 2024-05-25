@@ -1,4 +1,4 @@
-@extends('layouts.home')
+@extends('layouts.buku')
 @section('title', 'Home | Search Book')
 
 @section('content')

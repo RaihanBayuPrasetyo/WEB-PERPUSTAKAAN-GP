@@ -24,7 +24,7 @@
                             <div class="col-md-6">
                                 <label for="nis" class="form-label">No Telp</label>
                                 <input type="number" name="nis" value="{{ Auth::guard('student')->user()->nis }}"
-                                    id="nis" class="form-control @error('nis') is-invalid @enderror">
+                                    id="nis" class="form-control @error('nis') is-invalid @enderror" >
                                 @error('nis')
                                     <div class="alert alert-danger mt-2 mb-2 p-2">{{ $message }}</div>
                                 @enderror

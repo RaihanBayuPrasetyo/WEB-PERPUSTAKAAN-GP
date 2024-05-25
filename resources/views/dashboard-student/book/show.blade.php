@@ -1,6 +1,7 @@
 @extends('layouts.dashboard-student')
 @section('title', 'Anggota | Detail Buku')
 
+
 @section('content')
     <div class="row">
         <div class="col-md-12">

@@ -49,17 +49,22 @@ class StudentController extends Controller
     }
 
     public function update(Request $request, $id)
-    {
-        $validate = $request->validate([
-            'nama' => 'required',
-            'nis' => 'required',
-            'kelas' => 'required',
-        ]);
+{
+    $request->validate([
+        'nama' => 'required',
+        'nis' => 'required',
+        'kelas' => 'required',
+    ]);
 
-        $student = Student::find($id)->update($validate);
+    $student = Student::find($id);
+    $student->nama = $request->nama;
+    $student->nis = $request->nis; // Perbarui data nis
+    $student->kelas = $request->kelas;
+    $student->save();
 
-        return redirect()->route('student.index')->with('status', 'Data Siswa Berhasil Di Update');
-    }
+    return redirect()->route('student.index')->with('status', 'Data Siswa Berhasil Diupdate');
+}
+
 
     public function destroy($id)
     {
